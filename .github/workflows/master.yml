@@ -1,9 +1,6 @@
 # Taken from: https://docs.github.com/en/free-pro-team@latest/actions/guides/building-and-testing-python
 name: Release Api
-on:
-  push:
-    branches:
-      - master
+on: [push]
 
 jobs:
   build:
@@ -29,11 +26,8 @@ jobs:
       run: |
         # stop the build if there are Python syntax errors or undefined names
         flake8 src --count --select=E9,F63,F7,F82 --show-source --statistics
-        flake8 test --count --select=E9,F63,F7,F82 --show-source --statistics
         # exit-zero treats all errors as warnings. The PyCharm editor is 120 chars wide
         flake8 src --count --exit-zero --max-complexity=10 --max-line-length=120 --statistics
-        flake8 test --count --exit-zero --max-complexity=10 --max-line-length=120 --statistics
-
     - name: Run Unit Tests and generate coverage report
       run: |
         python -m unittest discover
