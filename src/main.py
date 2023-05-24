@@ -1,10 +1,12 @@
-import json
-
 from flask import Flask, jsonify, request, Response
 from random import randint
 
+from src.response.process import build_user_data_response
+from src.validator.user_data_validator import UserDataValidator
+
 # Init
 app = Flask(__name__)
+usv = UserDataValidator()
 
 
 @app.route('/score')
@@ -16,18 +18,18 @@ def score():
 @app.route('/user_data', methods=["POST"])
 def user_data():
     """Save user data from the app"""
-    request_data = request.get_json()
-    json_formatted_str = json.dumps(request_data, indent=2)
-    print(json_formatted_str)
-
-    return Response("success", 200)
+    request_data = request.json
+    if usv.validate(request_data):
+        response = build_user_data_response(request_data["data"])
+        return jsonify(response)
+    else:
+        return Response("Bad request", 400)
 
 
 @app.route('/questionnaire_data', methods=["POST"])
 def questionnaire_data():
     """Save user questionnaires data from the app"""
     request_data = request.get_json()
-    print(request_data)
     return Response("success", 200)
 
 

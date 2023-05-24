@@ -1,0 +1,57 @@
+{
+  "userId": "",
+  "data": {
+    "distance": [
+      "startTime",
+      "endTime",
+      "distance"
+    ],
+    "elevationGained": [
+      "startTime",
+      "endTime",
+      "elevation"
+    ],
+    "exerciseSession": [
+      "startTime",
+      "endTime",
+      "exerciseType"
+    ],
+    "floorsClimbed": [
+      "startTime",
+      "endTime",
+      "floors"
+    ],
+    "heartRate": {
+      "startTime": "",
+      "endTime": "",
+      "samples": [
+        "timestamp",
+        "beatsPerMinute"
+      ]
+    },
+    "sleep": {
+      "startTime": "",
+      "endTime": "",
+      "stages": [
+        "startTime",
+        "endTime",
+        "stage"
+      ]
+    },
+    "steps": [
+      "startTime",
+      "endTime",
+      "steps"
+    ],
+    "totalCaloriesBurned": [
+      "startTime",
+      "endTime",
+      "energy"
+    ],
+    "weight": [
+      "timestamp",
+      "weight"
+    ]
+  }
+}
+  

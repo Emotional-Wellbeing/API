@@ -1,0 +1,155 @@
+{
+  "data": {
+    "distance": [
+      {
+        "distance": 6.5709942056152295,
+        "endTime": 1684451245,
+        "startTime": 1684447559
+      },
+      {
+        "distance": 0.7770193624007848,
+        "endTime": 1684337652,
+        "startTime": 1684307530
+      }
+    ],
+    "elevationGained": [
+      {
+        "elevation": 1.206427119160386,
+        "endTime": 1684445865,
+        "startTime": 1684396631
+      },
+      {
+        "elevation": 0.08853845002148308,
+        "endTime": 1684351316,
+        "startTime": 1684307656
+      }
+    ],
+    "exerciseSession": [
+      {
+        "endTime": 1683376866,
+        "exerciseType": "other",
+        "notes": "Notes",
+        "startTime": 1683369227,
+        "title": "Exercise"
+      },
+      {
+        "endTime": 1683407655,
+        "exerciseType": "other",
+        "notes": "Notes",
+        "startTime": 1683364697,
+        "title": "Exercise"
+      }
+    ],
+    "floorsClimbed": [
+      {
+        "endTime": 1683409492,
+        "floors": 713835.0901170173,
+        "startTime": 1683369272
+      },
+      {
+        "endTime": 1683307537,
+        "floors": 133652.45214398025,
+        "startTime": 1683304156
+      }
+    ],
+    "heartRate": [
+      {
+        "endTime": 1684387120,
+        "samples": [
+          {
+            "beatsPerMinute": 172,
+            "timestamp": 1684376293
+          },
+          {
+            "beatsPerMinute": 106,
+            "timestamp": 1684378999
+          }
+        ],
+        "startTime": 1684376293
+      },
+      {
+        "endTime": 1684322805,
+        "samples": [
+          {
+            "beatsPerMinute": 74,
+            "timestamp": 1684317634
+          },
+          {
+            "beatsPerMinute": 133,
+            "timestamp": 1684318926
+          }
+        ],
+        "startTime": 1684317634
+      }
+    ],
+    "sleep": [
+      {
+        "endTime": 1683637182,
+        "stages": [
+          {
+            "endTime": 1683606535,
+            "stage": "sleeping",
+            "startTime": 1683602035
+          },
+          {
+            "endTime": 1683612535,
+            "stage": "awake",
+            "startTime": 1683606535
+          }
+        ],
+        "startTime": 1683602035
+      },
+      {
+        "endTime": 1683550112,
+        "stages": [
+          {
+            "endTime": 1683545019,
+            "stage": "unknown",
+            "startTime": 1683542259
+          },
+          {
+            "endTime": 1683547599,
+            "stage": "light",
+            "startTime": 1683545019
+          }
+        ],
+        "startTime": 1683542259
+      }
+    ],
+    "steps": [
+      {
+        "endTime": 1683354027,
+        "startTime": 1683336964,
+        "steps": 18222
+      },
+      {
+        "endTime": 1683330319,
+        "startTime": 1683264325,
+        "steps": 6138
+      }
+    ],
+    "totalCaloriesBurned": [
+      {
+        "endTime": 1683397226,
+        "energy": 3019.9947723492905,
+        "startTime": 1683377793
+      },
+      {
+        "endTime": 1683298312,
+        "energy": 2939.3326476738707,
+        "startTime": 1683293283
+      }
+    ],
+    "weight": [
+      {
+        "timestamp": 1683367672,
+        "weight": 44.582693156181044
+      },
+      {
+        "timestamp": 1683281788,
+        "weight": 110.53926698441339
+      }
+    ]
+  },
+  "userId": "ea2496f952dedb3143590a980962da4822e538ee045b024744971d01cf8e76b1695812398df9a1bb781b900a53037f68e62f0758ad061b9da35cd1c9cc6218cf"
+}
