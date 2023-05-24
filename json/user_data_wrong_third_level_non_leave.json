@@ -1,0 +1,35 @@
+{
+  "data": {
+    "heartRate": [
+      {
+        "endTime": 1684387120,
+        "ejemplos": [
+          {
+            "beatsPerMinute": 172,
+            "timestamp": 1684376293
+          },
+          {
+            "beatsPerMinute": 106,
+            "timestamp": 1684378999
+          }
+        ],
+        "startTime": 1684376293
+      },
+      {
+        "endTime": 1684322805,
+        "samples": [
+          {
+            "beatsPerMinute": 74,
+            "timestamp": 1684317634
+          },
+          {
+            "beatsPerMinute": 133,
+            "timestamp": 1684318926
+          }
+        ],
+        "startTime": 1684317634
+      }
+    ]
+    },
+  "userId": "ea2496f952dedb3143590a980962da4822e538ee045b024744971d01cf8e76b1695812398df9a1bb781b900a53037f68e62f0758ad061b9da35cd1c9cc6218cf"
+}

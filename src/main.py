@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, request, Response
 from random import randint
 
-from src.response.process import build_user_data_response
+from src.response.user_data_response import build_user_data_response
 from src.validator.user_data_validator import UserDataValidator
 
 # Init
@@ -29,7 +29,6 @@ def user_data():
 @app.route('/questionnaire_data', methods=["POST"])
 def questionnaire_data():
     """Save user questionnaires data from the app"""
-    request_data = request.get_json()
     return Response("success", 200)
 
 

@@ -62,8 +62,7 @@ class UserDataValidator:
                                 # Not all of second level contains child elements, so check if we have children
                                 if type(value) is list:
                                     for innerRegister in register[key]:
-                                        if not inner_contained_fully_outer(self.data_format[measure][key],
-                                                                           innerRegister.keys()):
+                                        if not inner_contained_fully_outer(value, innerRegister.keys()):
                                             result = False
                         else:
                             result = False
