@@ -1,9 +1,6 @@
 # Taken from: https://docs.github.com/en/free-pro-team@latest/actions/guides/building-and-testing-python
 name: Release Api
-on:
-  push:
-    branches:
-      - master
+on: [push]
 
 jobs:
   build:
