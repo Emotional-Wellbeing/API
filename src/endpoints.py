@@ -1,4 +1,4 @@
-from typing import Any
+from typing import Dict
 
 from flask import Response, jsonify
 
@@ -10,7 +10,7 @@ class Endpoints:
     def __init__(self):
         self.udv = UserDataValidator()
 
-    def user_data_endpoint(self, request_data: Any | None) -> Response:
+    def user_data_endpoint(self, request_data: Dict) -> Response:
         if self.udv.validate(request_data):
             response = build_user_data_response(request_data["data"])
             return jsonify(response)
