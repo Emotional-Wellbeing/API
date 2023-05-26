@@ -7,7 +7,7 @@ from flask import Flask
 from src.endpoints import Endpoints
 
 
-class TestUserDataValidator(unittest.TestCase):
+class TestUserDataEndpoint(unittest.TestCase):
     def setUp(self) -> None:
         self.endpoints = Endpoints()
         self.app = Flask(__name__)
@@ -38,45 +38,51 @@ class TestUserDataValidator(unittest.TestCase):
         self.assertIsNone(response.json, "Response json must be None")
         self.assertEqual(response.data, self.bad_response_bytes, "Data of the response is \"Bad response\" as bytes")
 
-    def testValidatorNoUserId(self):
+    def testNoUserId(self):
         input_path = self.base_path_input / 'user_data_no_user_id.json'
         self.__doFailureTest(input_path)
 
-    def testValidatorEmptyData(self):
+    def testEmptyData(self):
         input_path = self.base_path_input / 'user_data_empty_data.json'
         response_path = self.base_path_response / 'user_data_empty_data.json'
 
         self.__doSuccessTest(input_path, response_path)
 
-    def testValidatorFullData(self):
+    def testEmptyListsOfData(self):
+        input_path = self.base_path_input / 'user_data_empty_lists_of_data.json'
+        response_path = self.base_path_response / 'user_data_empty_lists_of_data.json'
+
+        self.__doSuccessTest(input_path, response_path)
+
+    def testFullData(self):
         input_path = self.base_path_input / 'user_data_full_data.json'
         response_path = self.base_path_response / 'user_data_full_data.json'
 
         self.__doSuccessTest(input_path, response_path)
 
-    def testValidatorOneData(self):
+    def testOneData(self):
         input_path = self.base_path_input / 'user_data_one_data.json'
         response_path = self.base_path_response / 'user_data_one_data.json'
 
         self.__doSuccessTest(input_path, response_path)
 
-    def testValidatorWrongFirstLevel(self):
+    def testWrongFirstLevel(self):
         input_path = self.base_path_input / 'user_data_wrong_first_level.json'
         self.__doFailureTest(input_path)
 
-    def testValidatorWrongSecondLevel(self):
+    def testWrongSecondLevel(self):
         input_path = self.base_path_input / 'user_data_wrong_second_level.json'
         self.__doFailureTest(input_path)
 
-    def testValidatorWrongThirdLevelLeave(self):
+    def testWrongThirdLevelLeave(self):
         input_path = self.base_path_input / 'user_data_wrong_third_level_leave.json'
         self.__doFailureTest(input_path)
 
-    def testValidatorWrongThirdLevelNonLeave(self):
+    def testWrongThirdLevelNonLeave(self):
         input_path = self.base_path_input / 'user_data_wrong_third_level_non_leave.json'
         self.__doFailureTest(input_path)
 
-    def testValidatorWrongFourthLevel(self):
+    def testWrongFourthLevel(self):
         input_path = self.base_path_input / 'user_data_wrong_fourth_level.json'
         self.__doFailureTest(input_path)
 

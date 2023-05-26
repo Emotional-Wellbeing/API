@@ -5,7 +5,7 @@ from pathlib import Path
 from src.response.user_data_response import build_user_data_response
 
 
-class TestUserDataValidator(unittest.TestCase):
+class TestUserDataResponse(unittest.TestCase):
     def setUp(self) -> None:
         self.base_path_input = Path(__file__).parent / '../json/input'
         self.base_path_response = Path(__file__).parent / '../json/response'
@@ -19,19 +19,25 @@ class TestUserDataValidator(unittest.TestCase):
         response = build_user_data_response(input_data["data"])
         self.assertDictEqual(response, expected_response, text)
 
-    def testValidatorEmptyData(self):
+    def testResponseEmptyData(self):
         input_path = self.base_path_input / 'user_data_empty_data.json'
         response_path = self.base_path_response / 'user_data_empty_data.json'
 
         self.__doTest(input_path, response_path, "No data provided")
 
-    def testValidatorFullData(self):
+    def testResponseEmptyListsOfData(self):
+        input_path = self.base_path_input / 'user_data_empty_lists_of_data.json'
+        response_path = self.base_path_response / 'user_data_empty_lists_of_data.json'
+
+        self.__doTest(input_path, response_path, "Lists of empty data provided")
+
+    def testResponseFullData(self):
         input_path = self.base_path_input / 'user_data_full_data.json'
         response_path = self.base_path_response / 'user_data_full_data.json'
 
         self.__doTest(input_path, response_path, "Full data provided")
 
-    def testValidatorOneData(self):
+    def testResponseOneData(self):
         input_path = self.base_path_input / 'user_data_one_data.json'
         response_path = self.base_path_response / 'user_data_one_data.json'
 

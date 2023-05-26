@@ -1,6 +1,7 @@
 import json
 import unittest
 from pathlib import Path
+
 from src.validator.user_data_validator import UserDataValidator
 
 
@@ -26,6 +27,10 @@ class TestUserDataValidator(unittest.TestCase):
     def testValidatorEmptyData(self):
         path = self.base_path / 'user_data_empty_data.json'
         self.__doTrueTest(path, "No data provided")
+
+    def testValidatorEmptyListsOfData(self):
+        path = self.base_path / 'user_data_empty_lists_of_data.json'
+        self.__doTrueTest(path, "Lists of empty data provided")
 
     def testValidatorFullData(self):
         path = self.base_path / 'user_data_full_data.json'

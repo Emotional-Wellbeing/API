@@ -14,5 +14,6 @@ def build_user_data_response(user_data: Dict) -> Dict:
             for key in register:
                 if key in ("endTime", "timestamp"):
                     timestamps.append(register[key])
-        response[measure] = max(timestamps)
+        if len(timestamps) > 0:
+            response[measure] = max(timestamps)
     return response
