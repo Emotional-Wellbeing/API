@@ -24,10 +24,19 @@ jobs:
 
     - name: Lint the code with flake8
       run: |
+        # make folders
+        mkdir tests/flake8
         # stop the build if there are Python syntax errors or undefined names
-        flake8 src --count --select=E9,F63,F7,F82 --show-source --statistics
+        flake8 src --count --select=E9,F63,F7,F82 --show-source --statistics > tests/flake8/syntax_errors.txt
         # exit-zero treats all errors as warnings. The PyCharm editor is 120 chars wide
-        flake8 src --count --exit-zero --max-complexity=10 --max-line-length=120 --statistics
+        flake8 src --count --exit-zero --max-complexity=10 --max-line-length=120 --statistics > tests/flake8/lint.txt
+
+    - name: Archive code link txt report
+      uses: actions/upload-artifact@v3
+      with:
+        name: code-coverage-report
+        path: tests/flake8
+
     - name: Run Unit Tests and generate coverage report
       run: |
         python -m unittest discover
