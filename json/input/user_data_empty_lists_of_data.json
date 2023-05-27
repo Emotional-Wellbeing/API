@@ -1,0 +1,14 @@
+{
+  "data": {
+    "distance": [],
+    "elevationGained": [],
+    "exerciseSession": [],
+    "floorsClimbed": [],
+    "heartRate": [],
+    "sleep": [],
+    "steps": [],
+    "totalCaloriesBurned": [],
+    "weight": []
+  },
+  "userId": "79d315026052366faf22f42b354d91a0499c91b3808f37c5397abc8301e297fa06f474a9198f7cf5060f3130767c75ca772980567a5ab88c9e1d8c2cc8e69d59"
+}

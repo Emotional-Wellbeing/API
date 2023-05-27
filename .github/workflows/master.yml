@@ -34,7 +34,7 @@ jobs:
     - name: Archive code link txt report
       uses: actions/upload-artifact@v3
       with:
-        name: code-coverage-report
+        name: code-lint-report
         path: tests/flake8
 
     - name: Run Unit Tests and generate coverage report

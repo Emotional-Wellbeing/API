@@ -2,7 +2,7 @@ import json
 from pathlib import Path
 from typing import Dict
 
-from src.utils.utils import inner_contained_fully_outer
+from src.utils import inner_contained_fully_outer
 
 
 class UserDataValidator:

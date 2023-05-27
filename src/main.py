@@ -3,10 +3,12 @@ from random import randint
 from flask import Flask, jsonify, request, Response
 
 from src.endpoints import Endpoints
+from src.utils import obtain_logger
 
 # Init
 app = Flask(__name__)
 endpoints = Endpoints()
+logger = obtain_logger("API")
 
 
 @app.route('/score')
@@ -19,6 +21,7 @@ def score():
 def user_data():
     """Save user data from the app"""
     request_data = request.json
+    logger.info(f'A request has been received with the following data: {request_data}')
     return endpoints.user_data_endpoint(request_data)
 
 
