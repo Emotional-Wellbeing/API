@@ -3,7 +3,7 @@ from random import randint
 from flask import Flask, jsonify, request, Response
 
 from src.endpoints import Endpoints
-from src.utils.utils import obtain_logger
+from src.utils import obtain_logger
 
 # Init
 app = Flask(__name__)

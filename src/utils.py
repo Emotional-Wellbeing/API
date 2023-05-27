@@ -2,7 +2,7 @@ import logging
 import string
 import sys
 from pathlib import Path
-from typing import Collection
+from typing import Collection, Dict
 
 
 def inner_contained_fully_outer(inner: Collection, outer: Collection) -> bool:
@@ -39,3 +39,13 @@ def obtain_logger(name: string):
     logger.addHandler(file_handler)
 
     return logger
+
+
+def data_not_empty(data: Dict):
+    """
+    Check if any of values of data is not an empty list
+    :param data: dict to check
+    :return: true if any of these values is not empty, false if all values are empty
+    """
+    values_empty = list(map(lambda values: len(values) > 0, data.values()))
+    return any(values_empty)

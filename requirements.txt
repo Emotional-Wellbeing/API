@@ -2,3 +2,4 @@ flask
 pathlib
 flake8
 coverage
+pymongo
