@@ -21,3 +21,12 @@ class Endpoints:
             return jsonify(response)
         else:
             return Response("Bad request", 400)
+    
+    def user_databg_endpoint(self, request_databg: Dict) -> Response:
+        if self.udv.validate(request_databg):
+            if data_not_empty(request_databg["databg"]):
+                self.database.insert_user_databg(request_databg)
+            response = build_user_databg_response(request_databg["databg"])
+            return jsonify(response)
+        else:
+            return Response("Bad request", 400)

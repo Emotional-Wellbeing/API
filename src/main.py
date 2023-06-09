@@ -24,6 +24,13 @@ def user_data():
     logger.info(f'A request has been received with the following data: {request_data}')
     return endpoints.user_data_endpoint(request_data)
 
+@app.route('/user_databg', methods=["POST"])
+def user_databg():
+    """Save user background data from the app"""
+    request_databg = request.json
+    logger.info(f'A request has been received with the following data: {request_databg}')
+    return endpoints.user_databg_endpoint(request_databg)
+
 
 @app.route('/questionnaire_data', methods=["POST"])
 def questionnaire_data():
