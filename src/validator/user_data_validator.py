@@ -2,10 +2,8 @@ import json
 from pathlib import Path
 from typing import Dict
 
-from utils import inner_contained_fully_outer
-from utils import obtain_logger
+from src.utils import inner_contained_fully_outer
 
-logger = obtain_logger("API")
 
 class UserDataValidator:
     def __init__(self):
@@ -49,10 +47,6 @@ class UserDataValidator:
         result = True
         # Iter over all measures of the data. All of them must match any available field
         for measure, values in user_data.items():
-            logger.info(f'__validate_user_data_format measure {measure}')
-            logger.info(f'__validate_user_data_format values {values}')
-            logger.info(f'__validate_user_data_format user_databg.items() {user_data.items()}')
-            logger.info(f'__validate_user_data_format self.data_format.keys() {self.data_format.keys()}')
             if measure in self.data_format.keys():
                 # Check second level, these are mandatory
                 for register in values:

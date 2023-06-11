@@ -2,8 +2,8 @@ from random import randint
 
 from flask import Flask, jsonify, request, Response
 
-from endpoints import Endpoints
-from utils import obtain_logger
+from src.endpoints import Endpoints
+from src.utils import obtain_logger
 import json
 
 # Init
@@ -24,6 +24,7 @@ def user_data():
     request_data = request.json
     logger.info(f'A request has been received with the following data: {request_data}')
     return endpoints.user_data_endpoint(request_data)
+
 
 @app.route('/bg_data', methods=["POST"])
 def user_databg():

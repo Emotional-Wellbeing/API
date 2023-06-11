@@ -2,15 +2,12 @@ from typing import Dict
 
 from flask import Response, jsonify
 
-from database import Database
-from response.user_data_response import build_user_data_response
-from response.user_databg_response import build_user_databg_response
-from utils import data_not_empty
-from validator.user_data_validator import UserDataValidator
-from validator.user_databg_validator import UserDataBgValidator 
-from utils import obtain_logger
-
-logger = obtain_logger("API")
+from src.database import Database
+from src.response.user_data_response import build_user_data_response
+from src.response.user_databg_response import build_user_databg_response
+from src.utils import data_not_empty
+from src.validator.user_data_validator import UserDataValidator
+from src.validator.user_databg_validator import UserDataBgValidator
 
 
 class Endpoints:
@@ -30,12 +27,9 @@ class Endpoints:
     
     def user_databg_endpoint(self, request_databg: Dict) -> Response:
         if self.udbgv.validate(request_databg):
-            if data_not_empty(request_databg):
-                logger.info(f'data_not_empty')
+            if data_not_empty(request_databg["databg"]):
                 self.database.insert_user_databg(request_databg)
-                logger.info(f'insert_user_databg')
-                response = build_user_databg_response(request_databg)
-                logger.info(f'build_user_databg_response')
-                return jsonify(response)
+            response = build_user_databg_response(request_databg["databg"])
+            return jsonify(response)
         else:
             return Response("Bad request", 400)

@@ -1,5 +1,5 @@
 from typing import Dict
-from utils import data_not_empty
+from src.utils import data_not_empty
 
 
 def build_user_data_response(user_data: Dict) -> Dict:
