@@ -2,10 +2,12 @@ import json
 from pathlib import Path
 from typing import Dict
 
-from src.utils import inner_contained_fully_outer
+from utils import inner_contained_fully_outer
+from utils import obtain_logger
 
+logger = obtain_logger("API")
 
-class UserDataValidator:
+class UserDataBgValidator:
     def __init__(self):
         # If we use this class from other script that is allocated on other folder and we don't user __file__,
         # Python won't recognise the path.
@@ -21,9 +23,12 @@ class UserDataValidator:
             :param user_databg_request: Request parsed in dict format
             :return: true if user_data_request is correct, otherwise false
         """
+        logger.info(f'validate1')
         result = self.__validate_request_format(user_databg_request)
-        if result:
-            result = self.__validate_user_data_format(user_databg_request["databg"])
+        logger.info(f'validate2 {result}')
+        #if result:
+         #   result = self.__validate_user_databg_format(user_databg_request["databg"])
+          #  logger.info(f'validate3 {result}')
         return result
 
     def __validate_request_format(self, user_databg_request: Dict) -> bool:
@@ -47,6 +52,10 @@ class UserDataValidator:
         result = True
         # Iter over all measures of the data. All of them must match any available field
         for measure, values in user_databg.items():
+            logger.info(f'__validate_user_databg_format measure {measure}')
+            logger.info(f'__validate_user_databg_format values {values}')
+            logger.info(f'__validate_user_databg_format user_databg.items() {user_databg.items()}')
+            logger.info(f'__validate_user_databg_format self.data_format.keys() {self.data_format.keys()}')
             if measure in self.data_format.keys():
                 # Check second level, these are mandatory
                 for register in values:
@@ -63,9 +72,12 @@ class UserDataValidator:
                                 if type(value) is list:
                                     for innerRegister in register[key]:
                                         if not inner_contained_fully_outer(value, innerRegister.keys()):
+                                            logger.info(f'__validate_user_databg_format salida3')
                                             result = False
                         else:
+                            logger.info(f'__validate_user_databg_format salida2')
                             result = False
             else:
+                logger.info(f'__validate_user_databg_format salida1')
                 result = False
         return result

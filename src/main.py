@@ -2,8 +2,9 @@ from random import randint
 
 from flask import Flask, jsonify, request, Response
 
-from src.endpoints import Endpoints
-from src.utils import obtain_logger
+from endpoints import Endpoints
+from utils import obtain_logger
+import json
 
 # Init
 app = Flask(__name__)
@@ -24,10 +25,11 @@ def user_data():
     logger.info(f'A request has been received with the following data: {request_data}')
     return endpoints.user_data_endpoint(request_data)
 
-@app.route('/user_databg', methods=["POST"])
+@app.route('/bg_data', methods=["POST"])
 def user_databg():
     """Save user background data from the app"""
-    request_databg = request.json
+    request_databg0 = request.json
+    request_databg = json.loads(request_databg0)
     logger.info(f'A request has been received with the following data: {request_databg}')
     return endpoints.user_databg_endpoint(request_databg)
 

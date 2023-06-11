@@ -2,7 +2,7 @@ import json
 import unittest
 from pathlib import Path
 
-from src.validator.user_data_validator import UserDataValidator
+from validator.user_data_validator import UserDataValidator
 
 
 class TestUserDataValidator(unittest.TestCase):

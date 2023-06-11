@@ -3,7 +3,7 @@ import unittest
 
 from pathlib import Path
 
-from src.database import Database
+from database import Database
 
 
 class TestDatabase(unittest.TestCase):

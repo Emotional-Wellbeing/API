@@ -50,7 +50,7 @@ class Database:
         collection = Database._database.get_collection('user_data')
         return collection.insert_one(data)
 
-        @staticmethod
+    @staticmethod
     def insert_user_databg(databg: Dict) -> InsertOneResult:
         """
         Insert background data into user_databg collection
