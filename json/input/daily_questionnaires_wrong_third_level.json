@@ -1,0 +1,55 @@
+{
+  "data": {
+    "depression": [
+      {
+        "pregunta1": 9,
+        "answer2": 9,
+        "answer3": 4,
+        "completed": true,
+        "createdAt": 1686561120000,
+        "id": 721,
+        "modifiedAt": 1686561121010,
+        "score": 22,
+        "scoreLevel": "high"
+      },
+      {
+        "answer1": 4,
+        "answer2": 3,
+        "answer3": 7,
+        "completed": true,
+        "createdAt": 1686561120000,
+        "id": 722,
+        "modifiedAt": 1686561121037,
+        "score": 14,
+        "scoreLevel": "moderate"
+      }
+    ],
+    "loneliness": [
+      {
+        "answer1": 3,
+        "answer2": 3,
+        "answer3": 4,
+        "answer4": 7,
+        "completed": true,
+        "createdAt": 1686561120000,
+        "id": 721,
+        "modifiedAt": 1686561121023,
+        "score": 17,
+        "scoreLevel": "moderate"
+      },
+      {
+        "answer1": 6,
+        "answer2": 3,
+        "answer3": 5,
+        "answer4": 7,
+        "completed": true,
+        "createdAt": 1686561120000,
+        "id": 722,
+        "modifiedAt": 1686561121039,
+        "score": 21,
+        "scoreLevel": "moderate"
+      }
+    ]
+  },
+  "userId": "d3cda405fce54a4fd7ed104a3a675d157e0237fab18527d9089746da2f139836e16c85d68164ff0c684f8508782ca26ec650a8f7027ad31d3dab70300543a220"
+}

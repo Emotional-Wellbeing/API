@@ -1,6 +1,6 @@
 from random import randint
 
-from flask import Flask, jsonify, request, Response
+from flask import Flask, jsonify, request
 
 from src.endpoints import Endpoints
 from src.utils import obtain_logger
@@ -25,10 +25,12 @@ def user_data():
     return endpoints.user_data_endpoint(request_data)
 
 
-@app.route('/questionnaire_data', methods=["POST"])
-def questionnaire_data():
-    """Save user questionnaires data from the app"""
-    return Response("success", 200)
+@app.route('/daily_questionnaires', methods=["POST"])
+def daily_questionnaires():
+    """Save user daily questionnaires data from the app"""
+    request_data = request.json
+    logger.info(f'A request has been received with the following data: {request_data}')
+    return endpoints.daily_questionnaires_endpoint(request_data)
 
 
 # If this script is being executed and not imported, deploy the API

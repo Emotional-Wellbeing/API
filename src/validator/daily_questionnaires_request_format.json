@@ -1,0 +1,61 @@
+{
+  "userId": "",
+  "data": {
+    "depression": [
+      "answer1",
+      "answer2",
+      "answer3",
+      "completed",
+      "createdAt",
+      "id",
+      "modifiedAt",
+      "score",
+      "scoreLevel"
+    ],
+    "loneliness": [
+      "answer1",
+      "answer2",
+      "answer3",
+      "answer4",
+      "completed",
+      "createdAt",
+      "id",
+      "modifiedAt",
+      "score",
+      "scoreLevel"
+    ],
+    "stress": [
+      "answer1",
+      "answer2",
+      "answer3",
+      "answer4",
+      "completed",
+      "createdAt",
+      "id",
+      "modifiedAt",
+      "score",
+      "scoreLevel"
+    ],
+    "suicide": [
+      "answer1",
+      "answer2",
+      "answer3",
+      "completed",
+      "createdAt",
+      "id",
+      "modifiedAt"
+    ],
+    "symptoms": [
+      "appetite",
+      "completed",
+      "createdAt",
+      "energy",
+      "focus",
+      "id",
+      "libido",
+      "modifiedAt",
+      "pain",
+      "rest"
+    ]
+  }
+}
