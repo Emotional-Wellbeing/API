@@ -1,0 +1,28 @@
+{
+  "data": {
+    "depression": [
+      {
+        "answer1": 9,
+        "answer2": 9,
+        "answer3": 4,
+        "completed": true,
+        "createdAt": 1686561120000,
+        "id": 721,
+        "modifiedAt": 1686561121010,
+        "score": 22,
+        "scoreLevel": "high"
+      },
+      {
+        "answer1": 4,
+        "answer2": 3,
+        "answer3": 7,
+        "completed": true,
+        "createdAt": 1686561120000,
+        "id": 722,
+        "modifiedAt": 1686561121037,
+        "score": 14,
+        "scoreLevel": "moderate"
+      }
+    ]
+  }
+}
