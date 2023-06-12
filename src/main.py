@@ -33,6 +33,14 @@ def daily_questionnaires():
     return endpoints.daily_questionnaires_endpoint(request_data)
 
 
+@app.route('/one_off_questionnaires', methods=["POST"])
+def one_off_questionnaires():
+    """Save user one_off questionnaires data from the app"""
+    request_data = request.json
+    logger.info(f'A request has been received with the following data: {request_data}')
+    return endpoints.one_off_questionnaires_endpoint(request_data)
+
+
 # If this script is being executed and not imported, deploy the API
 if __name__ == '__main__':
     app.run(host="0.0.0.0")

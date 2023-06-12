@@ -1,0 +1,57 @@
+{
+  "data": {
+    "depression": [
+      {
+        "answer1": 1,
+        "answer2": 3,
+        "answer3": 1,
+        "answer4": 2,
+        "answer5": 2,
+        "answer6": 2,
+        "answer7": 1,
+        "answer8": 3,
+        "answer9": 1,
+        "completed": true,
+        "createdAt": 1686561120000,
+        "id": 27,
+        "modifiedAt": 1686561121051,
+        "score": 16,
+        "scoreLevel": "moderately_severe"
+      },
+      {
+        "answer1": 0,
+        "answer2": 1,
+        "answer3": 3,
+        "answer4": 0,
+        "answer5": 0,
+        "answer6": 1,
+        "answer7": 2,
+        "answer8": 1,
+        "answer9": 1,
+        "completed": true,
+        "createdAt": 1685351521000,
+        "id": 28,
+        "modifiedAt": 1686561121321,
+        "score": 9,
+        "scoreLevel": "mild"
+      },
+      {
+        "answer1": 3,
+        "answer2": 0,
+        "answer3": 0,
+        "answer4": 3,
+        "answer5": 1,
+        "answer6": 3,
+        "answer7": 2,
+        "answer8": 3,
+        "answer9": 2,
+        "completed": true,
+        "createdAt": 1684141921000,
+        "id": 29,
+        "modifiedAt": 1686561121690,
+        "score": 17,
+        "scoreLevel": "moderately_severe"
+      }
+    ]
+  }
+}
