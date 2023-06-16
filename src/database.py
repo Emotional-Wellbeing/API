@@ -67,7 +67,6 @@ class Database:
                 values.update({"type": key, "userId": data["userId"]})
                 values.pop("id")
                 processed_data.append(values)
-        # print(processed_data)
         return collection.insert_many(processed_data)
 
     @staticmethod
@@ -87,5 +86,43 @@ class Database:
                 values.update({"type": key, "userId": data["userId"]})
                 values.pop("id")
                 processed_data.append(values)
-        # print(processed_data)
         return collection.insert_many(processed_data)
+
+    @staticmethod
+    def get_daily_questionnaires_average(start: int, end: int) -> Dict:
+        """
+            Obtain the average score of all scored measures filter by timestamps
+            :param start: filter by greater than or equals this value
+            :param end: filter by less than this value
+            :return: Dict with measure and score
+        """
+        collection = Database._database.get_collection('daily_questionnaires')
+        query = collection.aggregate(
+            [
+                {
+                    "$match":
+                        {
+                            "createdAt":
+                                {
+                                    "$gte": start,
+                                    "$lt": end
+                                },
+                            "score":
+                                {
+                                    "$gte": 0,
+                                }
+                        }
+                },
+                {
+                    "$group":
+                        {
+                            "_id": "$type",
+                            "average":
+                                {
+                                    "$avg": "$score"
+                                }
+                        }
+                }
+            ]
+        )
+        return {item["_id"]: item["average"] for item in query}

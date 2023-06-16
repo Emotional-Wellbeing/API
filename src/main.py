@@ -11,10 +11,10 @@ endpoints = Endpoints()
 logger = obtain_logger("API")
 
 
-@app.route('/score')
-def score():
-    """Returns the score of the community"""
-    return jsonify(randint(0, 100))
+@app.route('/community')
+def community():
+    """Returns the averages of the community"""
+    return endpoints.community_endpoint()
 
 
 @app.route('/user_data', methods=["POST"])
