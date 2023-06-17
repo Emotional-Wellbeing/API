@@ -206,6 +206,12 @@ class TestUserDataValidator(unittest.TestCase):
         input_path = self.base_path_input / 'one_off_questionnaires_wrong_third_level.json'
         self.__doFailureOneOffQuestionnairesTest(input_path)
 
+    def testCommunity(self):
+        with self.app.app_context():
+            response = self.endpoints.community_endpoint()
+        self.assertEqual(response.status_code, 200, "Response must be OK")
+        self.assertNotEqual(response.json, {}, "Content must be not empty")
+
 
 if __name__ == '__main__':
     unittest.main()

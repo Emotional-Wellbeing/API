@@ -6,6 +6,7 @@ from src.database import Database
 from src.response.daily_questionnaires_response import build_daily_questionnaires_response
 from src.response.one_off_questionnaires_response import build_one_off_questionnaires_response
 from src.response.user_data_response import build_user_data_response
+from src.time import get_timestamps_yesterday, get_timestamps_current_week, get_timestamps_last_seven_days
 from src.utils import data_not_empty
 from src.validator.daily_questionnaires_validator import DailyQuestionnairesValidator
 from src.validator.one_off_questionnaires_validator import OneOffQuestionnairesValidator
@@ -45,3 +46,30 @@ class Endpoints:
             return jsonify(response)
         else:
             return Response("Bad request", 400)
+
+    def community_endpoint(self) -> Response:
+        response = {}
+
+        # Obtain all timestamps
+        yesterday_timestamps = get_timestamps_yesterday()
+        current_week_timestamps = get_timestamps_current_week()
+        last_seven_days_timestamps = get_timestamps_last_seven_days()
+
+        # Yesterday average
+        response["yesterday"] = self.database.get_daily_questionnaires_average(
+            yesterday_timestamps[0],
+            yesterday_timestamps[1]
+        )
+
+        # Current week average by day
+        response["current_week"] = [
+            self.database.get_daily_questionnaires_average(day[0], day[1]) for day in current_week_timestamps
+        ]
+
+        # Last seven days average
+        response["last_seven_days"] = self.database.get_daily_questionnaires_average(
+            last_seven_days_timestamps[0],
+            last_seven_days_timestamps[1]
+        )
+
+        return jsonify(response)
