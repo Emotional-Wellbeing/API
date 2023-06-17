@@ -125,4 +125,4 @@ class Database:
                 }
             ]
         )
-        return {item["_id"]: item["average"] for item in query}
+        return {item["_id"]: round(item["average"], 2) for item in query}
