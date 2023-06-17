@@ -1,14 +1,12 @@
-from random import randint
-
-from flask import Flask, jsonify, request
+from flask import Flask, request
 
 from src.endpoints import Endpoints
 from src.utils import obtain_logger
 
 # Init
 app = Flask(__name__)
-endpoints = Endpoints()
-logger = obtain_logger("API")
+endpoints = Endpoints(database="bienestar_emocional_test")
+logger = obtain_logger("API-test")
 
 
 @app.route('/community')
@@ -43,4 +41,8 @@ def one_off_questionnaires():
 
 # If this script is being executed and not imported, deploy the API
 if __name__ == '__main__':
-    app.run(host="0.0.0.0")
+    app.run(
+        host="0.0.0.0",
+        port=5000,  # TODO change to 5001 when these port would be available
+        debug=True
+    )

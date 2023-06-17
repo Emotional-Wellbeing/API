@@ -14,11 +14,15 @@ from src.validator.user_data_validator import UserDataValidator
 
 
 class Endpoints:
-    def __init__(self):
+    def __init__(self, **kwargs):
         self.udv = UserDataValidator()
         self.dqv = DailyQuestionnairesValidator()
         self.ooqv = OneOffQuestionnairesValidator()
-        self.database = Database()
+
+        if "database" in kwargs:
+            self.database = Database(database=kwargs["database"])
+        else:
+            self.database = Database()
 
     def user_data_endpoint(self, request_data: Dict) -> Response:
         if self.udv.validate(request_data):
