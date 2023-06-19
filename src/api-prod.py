@@ -19,7 +19,7 @@ def community():
 def user_data():
     """Save user data from the app"""
     request_data = request.json
-    logger.info(f'A request has been received with the following data: {request_data}')
+    logger.info('A request has been received')
     return endpoints.user_data_endpoint(request_data)
 
 
@@ -27,7 +27,7 @@ def user_data():
 def daily_questionnaires():
     """Save user daily questionnaires data from the app"""
     request_data = request.json
-    logger.info(f'A request has been received with the following data: {request_data}')
+    logger.info('A request has been received')
     return endpoints.daily_questionnaires_endpoint(request_data)
 
 
@@ -35,7 +35,7 @@ def daily_questionnaires():
 def one_off_questionnaires():
     """Save user one_off questionnaires data from the app"""
     request_data = request.json
-    logger.info(f'A request has been received with the following data: {request_data}')
+    logger.info('A request has been received')
     return endpoints.one_off_questionnaires_endpoint(request_data)
 
 
