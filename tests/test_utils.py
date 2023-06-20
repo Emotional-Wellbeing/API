@@ -1,6 +1,6 @@
 import unittest
 
-from utils import data_not_empty
+from src.utils import data_not_empty
 
 
 class TestUtils(unittest.TestCase):

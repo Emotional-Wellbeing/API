@@ -20,13 +20,12 @@ class Endpoints:
         self.udv = UserDataValidator()
         self.dqv = DailyQuestionnairesValidator()
         self.ooqv = OneOffQuestionnairesValidator()
+        self.udbgv = UserDataBgValidator()
 
         if "database" in kwargs:
             self.database = Database(database=kwargs["database"])
         else:
             self.database = Database()
-        self.udbgv = UserDataBgValidator()
-        self.database = Database()
 
     def user_data_endpoint(self, request_data: Dict) -> Response:
         if self.udv.validate(request_data):

@@ -2,7 +2,7 @@ import json
 import unittest
 from pathlib import Path
 
-from database import Database
+from src.database import Database
 
 
 class TestDatabase(unittest.TestCase):

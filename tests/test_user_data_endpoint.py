@@ -4,7 +4,7 @@ from pathlib import Path
 
 from flask import Flask
 
-from endpoints import Endpoints
+from src.endpoints import Endpoints
 
 
 class TestUserDataEndpoint(unittest.TestCase):

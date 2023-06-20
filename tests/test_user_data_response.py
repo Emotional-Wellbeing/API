@@ -2,7 +2,7 @@ import json
 import unittest
 from pathlib import Path
 
-from response.user_data_response import build_user_data_response
+from src.response.user_data_response import build_user_data_response
 
 
 class TestUserDataResponse(unittest.TestCase):
