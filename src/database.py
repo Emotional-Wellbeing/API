@@ -126,3 +126,13 @@ class Database:
             ]
         )
         return {item["_id"]: round(item["average"], 2) for item in query}
+
+    @staticmethod
+    def insert_user_databg(databg: Dict) -> InsertOneResult:
+        """
+        Insert background data into user_databg collection
+        :param databg: data to insert
+        :return: InsertOneResult of the execution
+        """
+        collection = Database._database.get_collection('user_databg')
+        return collection.insert_one(databg)

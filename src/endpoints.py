@@ -7,10 +7,12 @@ from src.response.daily_questionnaires_response import build_daily_questionnaire
 from src.response.one_off_questionnaires_response import build_one_off_questionnaires_response
 from src.response.user_data_response import build_user_data_response
 from src.time import get_timestamps_yesterday, get_timestamps_current_week, get_timestamps_last_seven_days
+from src.response.user_databg_response import build_user_databg_response
 from src.utils import data_not_empty
 from src.validator.daily_questionnaires_validator import DailyQuestionnairesValidator
 from src.validator.one_off_questionnaires_validator import OneOffQuestionnairesValidator
 from src.validator.user_data_validator import UserDataValidator
+from src.validator.user_databg_validator import UserDataBgValidator
 
 
 class Endpoints:
@@ -23,6 +25,8 @@ class Endpoints:
             self.database = Database(database=kwargs["database"])
         else:
             self.database = Database()
+        self.udbgv = UserDataBgValidator()
+        self.database = Database()
 
     def user_data_endpoint(self, request_data: Dict) -> Response:
         if self.udv.validate(request_data):
@@ -77,3 +81,12 @@ class Endpoints:
         )
 
         return jsonify(response)
+    
+    def user_databg_endpoint(self, request_databg: Dict) -> Response:
+        if self.udbgv.validate(request_databg):
+            if data_not_empty(request_databg["databg"]):
+                self.database.insert_user_databg(request_databg)
+            response = build_user_databg_response(request_databg["databg"])
+            return jsonify(response)
+        else:
+            return Response("Bad request", 400)
