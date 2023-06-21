@@ -42,6 +42,7 @@ class TestDatabase(unittest.TestCase):
         response = self.database.insert_one_off_questionnaires(data)
         self.assertTrue(response.acknowledged, "ACK must be positive")
         self.assertIsNotNone(response.inserted_ids, "Id must be not none")
+
     def testInsertUserDataBg(self):
         path = Path(__file__).parent / '../json/input' / 'user_data_full_data.json'
         with path.open() as json_file:

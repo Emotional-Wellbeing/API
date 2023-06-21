@@ -1,3 +1,5 @@
+import json
+
 from flask import Flask, request
 
 from src.endpoints import Endpoints
@@ -37,6 +39,15 @@ def one_off_questionnaires():
     request_data = request.json
     logger.info('A request has been received')
     return endpoints.one_off_questionnaires_endpoint(request_data)
+
+
+@app.route('/bg_data', methods=["POST"])
+def user_databg():
+    """Save user background data from the app"""
+    request_databg0 = request.json
+    request_databg = json.loads(request_databg0)
+    logger.info(f'A request has been received with the following data: {request_databg}')
+    return endpoints.user_databg_endpoint(request_databg)
 
 
 # If this script is being executed and not imported, deploy the API
