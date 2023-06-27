@@ -15,7 +15,7 @@ def build_user_databg_response(user_databg: Dict) -> Dict:
             timestamps = []
             for register in values:
                 for key in register:
-                    if key in ("WiFI", "Mobile", "Call", "App"):
+                    if key in ("WiFI", "Mobile", "Call", "Apps"):
                         timestamps.append(measure[key])
             if len(timestamps) > 0:
                 response[measure] = max(timestamps)
